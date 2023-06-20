@@ -4,8 +4,8 @@ export const TodoSlicer = createSlice({
     name: 'toDo',
     initialState: {
         todoList: [
-            { id: 1, content: "Today HouseHold Chores" },
-            { id: 2, content: "Playing Cricket With Friends" }
+            { id: 1, content: "Today HouseHold Chores", completed: false },
+            { id: 2, content: "Playing Cricket With Friends", completed: true }
         ]
     },
     reducers: {
@@ -20,6 +20,12 @@ export const TodoSlicer = createSlice({
             let { todoList } = state;
             state.todoList = todoList.filter((item) => item.id !== action.payload.id);
         },
+        toggleComplete: (state, action) => {
+            let { todoList } = state;
+            state.todoList = todoList.map(item =>
+                item.id === action.payload.id ? { ...item, completed: !item.completed } : item
+            );
+        },
         editTodo: (state, action) => {
             let { todoList } = state;
             state.todoList = todoList.map((item) => item.id === action.payload.id ? action.payload : item);
@@ -28,6 +34,6 @@ export const TodoSlicer = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addToDo, deleteToDo, editTodo } = TodoSlicer.actions
+export const { addToDo, deleteToDo, editTodo, toggleComplete } = TodoSlicer.actions
 
 export default TodoSlicer.reducer;
