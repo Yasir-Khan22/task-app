@@ -12,7 +12,7 @@ const ListTodo = () => {
     const [isEditing, setEditing] = useState(false);
     const [state, setState] = useState({
         id: '',
-        content: "null",
+        content: "",
         contentError: null
     });
 

@@ -26,9 +26,17 @@ const AddTodo = () => {
     return <div className='form'>
         <div className='text-center'>
             <h2 className="text-center font-bold text-5xl m-[1rem] p-[1rem]">GM, What're your Plans today.</h2>
-            <input type='text' value={content} name='content' onChange={handleChange} />
-            <button type='button' className='' onClick={add}>Add</button>
-            {contentError ? <div className='error'>{contentError}</div> : null}
+            <div>
+                <select >
+                    <option value="All">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="incompleted.">Incompleted</option>
+                </select>
+
+                <input className='border-[1px] border-[black] p-2 m-1' type='text' value={content} name='content' onChange={handleChange} />
+                <button type='button' className='' onClick={add}>Add</button>
+                {contentError ? <div className='error'>{contentError}</div> : null}
+            </div>
         </div>
     </div>
 };
