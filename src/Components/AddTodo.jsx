@@ -27,15 +27,15 @@ const AddTodo = () => {
         <div className='text-center'>
             <h2 className="text-center font-bold text-5xl m-[1rem] p-[1rem]">GM, What're your Plans today.</h2>
             <div>
-                <select >
+                <select className='border-[1px] border-[black] p-2 m-1 ml-2'>
                     <option value="All">All</option>
                     <option value="completed">Completed</option>
-                    <option value="incompleted.">Incompleted</option>
+                    <option value="incompleted.">Incomplete</option>
                 </select>
 
                 <input className='border-[1px] border-[black] p-2 m-1' type='text' value={content} name='content' onChange={handleChange} />
                 <button type='button' className='' onClick={add}>Add</button>
-                {contentError ? <div className='error'>{contentError}</div> : null}
+                {contentError ? <div className='error text-xl m-[15px] text-center'>{contentError}</div> : null}
             </div>
         </div>
     </div>
